@@ -3,19 +3,20 @@ from boto3.session import Session
 import sys
 import os
 import time
+##build connection through access_key_id, secret_access_key and region_name
 def get_ec2_con_for_give_region(my_region,session):
     ec2_con_re=session.resource('ec2',region_name=my_region)
     return ec2_con_re
-
+##list all instance ids
 def list_instance_on_my_region(ec2_con_re):
     for each in ec2_con_re.instances.all():
         print(each.id)
-
+##show selected instance statement
 def get_instant_state(ec2_con_re, in_id):
     for each in ec2_con_re.instances.filter(Filters=[{'Name':'instance-id','Values':[in_id]}]):
         pr_st=each.state['Name']
         return pr_st
-
+##launch instance
 def start_instance(ec2_con_re,in_id):
     pr_st =get_instant_state(ec2_con_re,in_id)
     if pr_st =='running':
@@ -31,7 +32,7 @@ def start_instance(ec2_con_re,in_id):
 def thanks_you():
     print("\n\n*********Thank you for using this script*********")
     return None
-
+##terminate instance
 def stop_instance(ec2_con_re, in_id):
     pr_st =get_instant_state(ec2_con_re,in_id)
     if pr_st =='stopped':
