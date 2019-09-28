@@ -1,8 +1,8 @@
 ##first way to download files from s3
 import boto3
 from boto3.session import Session
-aws_key="AKIAIWXAKHINHFMSA7ZQ"
-aws_secret = "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"
+aws_key=""
+aws_secret = ""
 session=Session(aws_access_key_id=aws_key, aws_secret_access_key=aws_secret,
                 region_name="us-east-2")
 s3=session.resource("s3")
@@ -17,8 +17,8 @@ s3.Bucket(bucket_name).download_file(file_name,local_file_name)
 ##second way to download file from s3
 from boto3.session import Session
 import boto3
-aws_key="AKIAIWXAKHINHFMSA7ZQ"
-aws_secret = "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"
+aws_key=""
+aws_secret = ""
 session=Session(aws_access_key_id=aws_key, aws_secret_access_key=aws_secret,
                 region_name="us-east-2")
 s3 = session.resource('s3')
@@ -30,12 +30,12 @@ bucket_name.download_file(key,filename)
 
 
 
-##download all the files in the bucket
+##download all the files in the bucket without folder
 import boto3
 s3=boto3.client(
 's3',
-aws_access_key_id="AKIAIWXAKHINHFMSA7ZQ",
-aws_secret_access_key= "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",
+aws_access_key_id="",
+aws_secret_access_key= "",
 region_name="us-east-2")
 list=s3.list_objects(Bucket='s3functionstraining')['Contents']
 for key in list:
@@ -47,8 +47,8 @@ for key in list:
 import boto3
 s3=boto3.client(
 's3',
-aws_access_key_id="AKIAIWXAKHINHFMSA7ZQ",
-aws_secret_access_key= "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",
+aws_access_key_id="",
+aws_secret_access_key= "",
 region_name="us-east-2")
 list=s3.list_objects(Bucket='s3functionstraining')['Contents']
 for s3_key in list:
