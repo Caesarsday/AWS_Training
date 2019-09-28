@@ -53,8 +53,8 @@ def main():
     welcome()
     my_region=input("Enter your region name:")
     print("Please wait ... connecting to your aws ec2 console ...")
-    aws_key = "AKIAIWXAKHINHFMSA7ZQ"
-    aws_secret = "uM+5dRcwltvlvw/1uGK3ERLdizQMSg4RLBfjbEyN"
+    aws_key = ""
+    aws_secret = ""
     session = Session(aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
     ec2_con_re=get_ec2_con_for_give_region(my_region,session)
     print("Please wait listing all instance ids in your region{}".format(my_region))
