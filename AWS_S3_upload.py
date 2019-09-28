@@ -1,8 +1,8 @@
 ##upload files to s3
 import boto3
 from boto3.session import Session
-aws_key="AKIAIWXAKHINHFMSA7ZQ"
-aws_secret = "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"
+aws_key=""
+aws_secret = ""
 session=Session(aws_access_key_id=aws_key, aws_secret_access_key=aws_secret,
                 region_name="us-east-2")
 s3=session.resource("s3")
@@ -20,8 +20,8 @@ file_obj = s3.Bucket(bucket).put_object(Key=upload_key, Body=upload_data)
 from boto3.session import Session
 import botocore
 from botocore.exceptions import ClientError
-aws_key="AKIAIWXAKHINHFMSA7ZQ"
-aws_secret = "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"
+aws_key=""
+aws_secret = ""
 session=Session(aws_access_key_id=aws_key, aws_secret_access_key=aws_secret,
                 region_name="us-east-1")
 s3=session.resource("s3")
